@@ -15,7 +15,6 @@ public class SqlPersonaDao implements IPersonaDao{
     
     private String sql;
     
-    //Como llamar los gets de clientes y admin???
     
     public boolean existeAdmin(){
         ResultSet rs = null;

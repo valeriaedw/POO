@@ -9,18 +9,25 @@ import com.proyecto.bl.Albumes.Album;
 import com.proyecto.bl.Artistas.Artista;
 import com.proyecto.bl.Compositores.Compositor;
 import com.proyecto.bl.Generos.Genero;
+import java.io.InputStream;
 import java.time.LocalDate;
 
 public class Cancion {
     
     //Atributos
+    
+    private InputStream cancion;
     private String nombre;
-    private Genero generoCancion;
-    private Artista artista;
-    private Compositor compositor;
+    private String generoCancion; //Cambiar a tipo genero
+    private String artista; // Cambiar a tipo Artista
+    private String compositor; //Cambiar a tipo Compositor
     private LocalDate fechaLanzamiento;
-    private Album albumCancion;
+    private String albumCancion; //Cambiar a tipo Album
+    private String estado;
+    private double precio;
     private int calificacion;
+    
+   
     
     
     //Constructor
@@ -29,20 +36,31 @@ public class Cancion {
     }
    
     //Constructor
-    public Cancion(String nombre, Genero generoCancion, Artista artista, Compositor compositor, LocalDate fechaLanzamiento, Album albumCancion, int calificacion) {
+
+    public Cancion(InputStream cancion, String nombre, String generoCancion, String artista, String compositor, LocalDate fechaLanzamiento, String albumCancion, String estado, double precio, int calificacion) {
+        this.cancion = cancion;
         this.nombre = nombre;
         this.generoCancion = generoCancion;
         this.artista = artista;
         this.compositor = compositor;
         this.fechaLanzamiento = fechaLanzamiento;
-        this.albumCancion = albumCancion; //Instanciar en el controler para 
-        //enviar un objeto lleno ? o aqui y que se llene cuando se registra cancion???
+        this.albumCancion = albumCancion;
+        this.estado = estado;
+        this.precio = precio;
         this.calificacion = calificacion;
     }
-     
+   
     
     //Get y Set
-    public String getNombre() {
+    public InputStream getCancion() {   
+        return cancion;
+    }
+
+    public void setCancion(InputStream cancion) {   
+        this.cancion = cancion;
+    }
+
+    public String getNombre() {   
         return nombre;
     }
 
@@ -50,27 +68,27 @@ public class Cancion {
         this.nombre = nombre;
     }
 
-    public Genero getGenero() {
+    public String getGeneroCancion() {
         return generoCancion;
     }
 
-    public void setGenero(Genero genero) {
-        this.generoCancion = genero;
+    public void setGeneroCancion(String generoCancion) {
+        this.generoCancion = generoCancion;
     }
 
-    public Artista getArtista() {
+    public String getArtista() {
         return artista;
     }
 
-    public void setArtista(Artista artista) {
+    public void setArtista(String artista) {
         this.artista = artista;
     }
 
-    public Compositor getCompositor() {
+    public String getCompositor() {
         return compositor;
     }
 
-    public void setCompositor(Compositor compositor) {
+    public void setCompositor(String compositor) {
         this.compositor = compositor;
     }
 
@@ -82,11 +100,11 @@ public class Cancion {
         this.fechaLanzamiento = fechaLanzamiento;
     }
 
-    public Album getAlbum() {
+    public String getAlbumCancion() {
         return albumCancion;
     }
 
-    public void setAlbum(Album albumCancion) {
+    public void setAlbumCancion(String albumCancion) {
         this.albumCancion = albumCancion;
     }
 
@@ -97,7 +115,23 @@ public class Cancion {
     public void setCalificacion(int calificacion) {
         this.calificacion = calificacion;
     }
-    
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     //toString
     @Override
     public String toString() {

@@ -11,16 +11,11 @@
    <children>
       <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
         <menus>
-          <Menu fx:id="idCanciones" mnemonicParsing="false" onAction="#accionMenu" text="Canciones" />
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
+          <Menu fx:id="idCanciones" mnemonicParsing="false" onAction="#accionMenu" text="Canciones">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Administrar Canciones" />
+                  <MenuItem mnemonicParsing="false" text="Mis Canciones" />
+               </items>
           </Menu>
         </menus>
       </MenuBar>
