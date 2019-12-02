@@ -7,6 +7,9 @@ package com.proyecto.bl.Canciones;
 
 import com.proyecto.dl.AccesoBD;
 import com.proyecto.dl.Conexion;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -21,7 +24,7 @@ public class SqlCancionDao implements ICancionDao{
     public void insertarCancion(Cancion cancion) throws Exception {
         try {
             
-            sql = "INSERT INTO CANCION ('"+cancion.getCancion()+"','"+cancion.getNombre()+"','"+cancion.getGeneroCancion()+"','"+cancion.getArtista()+"','" 
+            sql = "INSERT INTO CANCION (CANCION, NOMBRE_CANCION, ID_GENERO, ID_ARTISTA, ID_COMPOSITOR, FECHA_LANZAMIENTO, ID_ALBUM, ESTADO, PRECIO, CALIFICACION) VALUES ('"+cancion.getCancion()+"','"+cancion.getNombre()+"','"+cancion.getGeneroCancion()+"','"+cancion.getArtista()+"','" 
                     +cancion.getCompositor()+"','"+cancion.getFechaLanzamiento()+"','"+cancion.getAlbumCancion()+"','"+cancion.getEstado()+"','"
                     +cancion.getPrecio()+"',"+cancion.getCalificacion()+")";
          
@@ -36,8 +39,39 @@ public class SqlCancionDao implements ICancionDao{
     }
 
     @Override
-    public ArrayList<Cancion> listarCanion() throws Exception {
-         return null;
+    public ArrayList<Cancion> listarCancion() throws Exception {
+        ArrayList<Cancion> listaCancion = new ArrayList<>();
+        try {
+            ResultSet rs = null;
+            Cancion cancion = null;
+            sql = "SELECT CANCION, NOMBRE_CANCION, ID_GENERO, ID_ARTISTA, ID_COMPOSITOR, FECHA_LANZAMIENTO, ID_ALBUM,PRECIO, CALIFICACION FROM CANCION";
+            rs = Conexion.getConnector().ejecutarQuery(sql);
+            
+            while(rs.next()){
+                
+               LocalDate date = rs.getDate("fecha_lanzamiento").toLocalDate();
+               
+            cancion = new Cancion(
+                
+                rs.getString("cancion"),   
+                rs.getString("nombre_cancion"), 
+                rs.getString("id_genero"), 
+                rs.getString("id_artista"), 
+                rs.getString("id_compositor"), 
+                //rs.getLocalDate(date),arreglar esto
+                rs.getString("id_album"),
+                rs.getString("precio"), 
+                rs.getString("calificacion"));
+            
+                listaCancion.add(cancion);
+            
+            }
+            
+            
+            
+            
+        } catch (Exception e) {
+        }
     }
 
     @Override

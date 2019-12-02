@@ -16,7 +16,7 @@ public class Cancion {
     
     //Atributos
     
-    private InputStream cancion;
+    private String cancion;
     private String nombre;
     private String generoCancion; //Cambiar a tipo genero
     private String artista; // Cambiar a tipo Artista
@@ -35,9 +35,8 @@ public class Cancion {
         
     }
    
-    //Constructor
 
-    public Cancion(InputStream cancion, String nombre, String generoCancion, String artista, String compositor, LocalDate fechaLanzamiento, String albumCancion, String estado, double precio, int calificacion) {
+    public Cancion(String cancion, String nombre, String generoCancion, String artista, String compositor, LocalDate fechaLanzamiento, String albumCancion, String estado, double precio, int calificacion) {
         this.cancion = cancion;
         this.nombre = nombre;
         this.generoCancion = generoCancion;
@@ -49,14 +48,27 @@ public class Cancion {
         this.precio = precio;
         this.calificacion = calificacion;
     }
-   
+    
+    public Cancion(String cancion, String nombre, String generoCancion, String artista, String compositor, LocalDate fechaLanzamiento, String albumCancion,double precio, int calificacion) {
+        this.cancion = cancion;
+        this.nombre = nombre;
+        this.generoCancion = generoCancion;
+        this.artista = artista;
+        this.compositor = compositor;
+        this.fechaLanzamiento = fechaLanzamiento;
+        this.albumCancion = albumCancion;
+        this.precio = precio;
+        this.calificacion = calificacion;
+    }
+
+  
     
     //Get y Set
-    public InputStream getCancion() {   
+    public String getCancion() {   
         return cancion;
     }
 
-    public void setCancion(InputStream cancion) {   
+    public void setCancion(String cancion) {   
         this.cancion = cancion;
     }
 

@@ -27,7 +27,7 @@ public class CancionController {
 
     }
 
-    public void registroCancion(InputStream cancion, String nombre, String generoCancion, String artista, String compositor, LocalDate fechaLanzamiento, String albumCancion,String estado, double precio, int calificacion) throws Exception {
+    public void registroCancion(String cancion, String nombre, String generoCancion, String artista, String compositor, LocalDate fechaLanzamiento, String albumCancion,String estado, double precio, int calificacion) throws Exception {
         
         try {
 

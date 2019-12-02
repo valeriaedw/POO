@@ -89,9 +89,9 @@ public class FXMLregistrarCancionesController implements Initializable {
     }
     
     public void agregarCancion() throws Exception{
-        InputStream archivo = new ByteArrayInputStream(lblCancion.getText().getBytes());
         
-        gestor.registroCancion(archivo,txtNombre.getText(),"genero","artista","compo", dpLanzamiento.getValue(),"","estado",Double.parseDouble(txtPrecio.getText()),Integer.parseInt(txtCalificacion.getText()));
+        
+        gestor.registroCancion(lblCancion.getText(),txtNombre.getText(),"genero","artista","compo", dpLanzamiento.getValue(),"","estado",Double.parseDouble(txtPrecio.getText()),Integer.parseInt(txtCalificacion.getText()));
         
     }
     
