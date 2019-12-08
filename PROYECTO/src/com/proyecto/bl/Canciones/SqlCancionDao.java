@@ -49,7 +49,7 @@ public class SqlCancionDao implements ICancionDao{
             
             while(rs.next()){
                 
-               LocalDate date = rs.getDate("fecha_lanzamiento").toLocalDate();
+               LocalDate fecha = rs.getDate("fecha_lanzamiento").toLocalDate();
                
             cancion = new Cancion(
                 
@@ -58,20 +58,20 @@ public class SqlCancionDao implements ICancionDao{
                 rs.getString("id_genero"), 
                 rs.getString("id_artista"), 
                 rs.getString("id_compositor"), 
-                //rs.getLocalDate(date),arreglar esto
+                fecha,
                 rs.getString("id_album"),
-                rs.getString("precio"), 
-                rs.getString("calificacion"));
+                rs.getDouble("precio"), 
+                rs.getInt("calificacion"));
             
                 listaCancion.add(cancion);
             
             }
-            
-            
-            
-            
+                
         } catch (Exception e) {
+            
         }
+        
+        return listaCancion;
     }
 
     @Override

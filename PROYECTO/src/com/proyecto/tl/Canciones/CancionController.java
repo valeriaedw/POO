@@ -14,6 +14,7 @@ import com.proyecto.bl.Factory.DaoFactory;
 import com.proyecto.bl.Generos.Genero;
 import java.io.InputStream;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class CancionController {
 
@@ -37,6 +38,30 @@ public class CancionController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    public String[] listarCanciones(){
+        
+        ArrayList<Cancion> lista = null;
+        String[] listaDatos = null;
+        
+        try {
+            
+            lista=cancionDao.listarCancion();
+            listaDatos = new String [lista.size()];
+            
+            for(int x =0; x < listaDatos.length; x++){
+                
+                listaDatos[x] = lista.get(x).toString();
+                
+            }
+               
+        }catch(Exception e){
+            
+            e.printStackTrace();
+        }
+        return listaDatos;
+        
     }
 
 }

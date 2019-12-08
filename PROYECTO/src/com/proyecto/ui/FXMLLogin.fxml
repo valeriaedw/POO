@@ -26,7 +26,7 @@
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Label layoutX="37.0" layoutY="61.0" text="INICIAR SESIÓN">
+                  <Label layoutX="120.0" layoutY="68.0" text="INICIAR SESIÓN">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
@@ -34,8 +34,6 @@
                   <TextField fx:id="txtUsuario" layoutX="90.0" layoutY="174.0" prefHeight="32.0" prefWidth="256.0" promptText="Nombre de Usuario" />
                   <Button layoutX="90.0" layoutY="316.0" mnemonicParsing="false" onAction="#login" prefHeight="32.0" prefWidth="256.0" text="Iniciar Sesión" />
                   <Label layoutX="229.0" layoutY="276.0" text="Olvidó su contraseña?" textFill="#a49999" underline="true" />
-                  <Label layoutX="130.0" layoutY="376.0" text="Nuevo usuario?" textFill="#a49999" />
-                  <Label layoutX="218.0" layoutY="376.0" text="Registrarme" underline="true" />
                   <PasswordField fx:id="pwdContrasenia" layoutX="90.0" layoutY="233.0" prefHeight="32.0" prefWidth="256.0" promptText="Contraseña" />
                </children>
             </AnchorPane>

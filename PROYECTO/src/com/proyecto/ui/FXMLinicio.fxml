@@ -8,7 +8,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="690.0" style="-fx-background-color: #AA8B8B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.proyecto.ui.FXMLinicioController">
    <children>
-      <Label layoutX="244.0" layoutY="204.0" text="BIENVENIDO!">
+      <Label layoutX="234.0" layoutY="227.0" text="BIENVENIDO!">
          <font>
             <Font name="Century Gothic Bold Italic" size="36.0" />
          </font>
