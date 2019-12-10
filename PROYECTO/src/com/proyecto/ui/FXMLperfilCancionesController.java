@@ -13,18 +13,18 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 
 public class FXMLperfilCancionesController implements Initializable {
@@ -42,18 +42,30 @@ public class FXMLperfilCancionesController implements Initializable {
     private Button btnModificar;
     private Label lblCancion;
     List<String> files;
-    
+
     //Atributos de la table
     @FXML
-    private TableView <Cancion> tablaCanciones;
+    private TableView<Cancion> tablaCanciones;
     @FXML
-    private TableColumn nombreCL;
+    private TableColumn <Cancion,String> nombreCL;
+    @FXML
+    private TableColumn <Cancion,String> generoCL;
+    @FXML
+    private TableColumn <Cancion,String>artistaCL;
+    @FXML
+    private TableColumn <Cancion,String>fechaCL;
+    @FXML
+    private TableColumn <Cancion,String>precioCL;
+    @FXML
+    private TableColumn <Cancion,String> calificacionCL;
+    @FXML
+    private TableColumn <Cancion,String> reproducirCL;
+
     ObservableList<Cancion> canciones;
+
     
-    private int posicionCancionTabla;
 
     CancionController gestor = new CancionController();
-    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -66,6 +78,22 @@ public class FXMLperfilCancionesController implements Initializable {
         files.add("*.MP4");
         files.add("*.WAV");
         files.add("*.wav");
+        
+        //Lista tabla
+        canciones = FXCollections.observableArrayList();
+        
+        //canciones = gestor.listarCanciones();
+      
+        nombreCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("nombre"));
+        generoCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("genero"));
+        artistaCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("artista"));
+        fechaCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("fecha"));
+        precioCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("precio"));
+        calificacionCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("calificacion"));
+        reproducirCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("cancion"));
+        
+        tablaCanciones.setItems(canciones);
+        
     }
 
     public void subirCancion(ActionEvent event) throws FileNotFoundException {
@@ -76,7 +104,7 @@ public class FXMLperfilCancionesController implements Initializable {
         fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Music", files));
         fc.setTitle("Buscar Cancion");
 
-        //Obtener la imagen seleccionada
+        //Obtener la ruta seleccionada
         File f = fc.showOpenDialog(null);
 
         if (f != null) {

@@ -69,6 +69,7 @@ public class SqlCancionDao implements ICancionDao{
                 
         } catch (Exception e) {
             
+            e.printStackTrace();
         }
         
         return listaCancion;
