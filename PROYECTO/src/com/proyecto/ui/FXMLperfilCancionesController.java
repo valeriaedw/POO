@@ -13,6 +13,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,8 +33,11 @@ public class FXMLperfilCancionesController implements Initializable {
 
     @FXML
     private TextField txtNombre;
+    @FXML
     private DatePicker dpLanzamiento;
+    @FXML
     private TextField txtCalificacion;
+    @FXML
     private TextField txtPrecio;
     @FXML
     private Button btnAgregar;
@@ -40,6 +45,7 @@ public class FXMLperfilCancionesController implements Initializable {
     private Button btnEliminar;
     @FXML
     private Button btnModificar;
+    @FXML
     private Label lblCancion;
     List<String> files;
 
@@ -82,12 +88,16 @@ public class FXMLperfilCancionesController implements Initializable {
         //Lista tabla
         canciones = FXCollections.observableArrayList();
         
-        //canciones = gestor.listarCanciones();
+        try {
+            canciones = FXCollections.observableArrayList(gestor.listarCanciones());
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLperfilCancionesController.class.getName()).log(Level.SEVERE, null, ex);
+        }
       
         nombreCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("nombre"));
-        generoCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("genero"));
+        generoCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("generoCancion"));
         artistaCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("artista"));
-        fechaCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("fecha"));
+        fechaCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("fechaLanzamiento"));
         precioCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("precio"));
         calificacionCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("calificacion"));
         reproducirCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("cancion"));
@@ -107,10 +117,13 @@ public class FXMLperfilCancionesController implements Initializable {
         //Obtener la ruta seleccionada
         File f = fc.showOpenDialog(null);
 
-        if (f != null) {
+        
+            if (f != null) {
 
             lblCancion.setText(f.getAbsolutePath());
         }
+        
+ 
     }
 
     @FXML

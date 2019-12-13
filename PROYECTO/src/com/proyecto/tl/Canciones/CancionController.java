@@ -40,9 +40,9 @@ public class CancionController {
         }
     }
     
-    public String[] listarCanciones(){
+    public ArrayList<Cancion> listarCanciones() throws Exception{
         
-        ArrayList<Cancion> lista = null;
+        /**ArrayList<Cancion> lista = null;
         String[] listaDatos = null;
         
         try {
@@ -60,7 +60,10 @@ public class CancionController {
             
             e.printStackTrace();
         }
-        return listaDatos;
+        return listaDatos;*/
+        
+        return cancionDao.listarCancion();
+                
         
     }
 
