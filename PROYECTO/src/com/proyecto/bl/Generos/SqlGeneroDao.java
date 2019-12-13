@@ -7,6 +7,7 @@ package com.proyecto.bl.Generos;
 
 import com.proyecto.dl.AccesoBD;
 import com.proyecto.dl.Conexion;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
@@ -35,8 +36,28 @@ public class SqlGeneroDao implements IGeneroDao {
 
     @Override
     public ArrayList<Genero> listarGenero() throws Exception {
+        
+        ArrayList<Genero>  listaGenero = new ArrayList<>();
+        try {
+            ResultSet rs = null;
+            Genero genero = null;
+            sql= "SELECT NOMBRE, DESCRIPCION FROM GENERO";
+            rs = Conexion.getConnector().ejecutarQuery(sql);
+            
+            while (rs.next()){
+                genero = new Genero(
+                    rs.getString("nombre"),
+                    rs.getString("descripcion"));
 
-        return null;
+               listaGenero.add(genero);
+            }
+   
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
+        return listaGenero;   
     }
 
     @Override

@@ -27,6 +27,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
 
 public class FXMLperfilCancionesController implements Initializable {
@@ -103,6 +105,13 @@ public class FXMLperfilCancionesController implements Initializable {
         reproducirCL.setCellValueFactory(new PropertyValueFactory<Cancion,String>("cancion"));
         
         tablaCanciones.setItems(canciones);
+        
+       /**Media media;
+        media = new Media (new File(reproducirCL.getText()).toURI().getPath());
+        
+        MediaPlayer mediaplayer = new MediaPlayer(media);
+        mediaplayer.setAutoPlay(false);*/
+        
         
     }
 

@@ -22,6 +22,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 
 public class FXMLperfilCompositoresController implements Initializable {
@@ -29,13 +30,13 @@ public class FXMLperfilCompositoresController implements Initializable {
     @FXML
     private TableView <Compositor> tablaCompositores;
     @FXML
-    private TableColumn nombreCL;
+    private TableColumn <Compositor, String>nombreCL;
     @FXML
-    private TableColumn apellidoCL;
+    private TableColumn <Compositor, String>apellidoCL;
     @FXML
-    private TableColumn paisCL;
+    private TableColumn <Compositor, String>paisCL;
     @FXML
-    private TableColumn edadCL;
+    private TableColumn <Compositor, String>edadCL;
     @FXML
     private Button btnAgregar;
     @FXML
@@ -54,6 +55,7 @@ public class FXMLperfilCompositoresController implements Initializable {
     private ComboBox cbPais;
     ObservableList<String> listaCombo = FXCollections.observableArrayList();
     
+    ObservableList<Compositor> compositores;
     CompositorController gestor = new CompositorController();
 
    
@@ -68,6 +70,22 @@ public class FXMLperfilCompositoresController implements Initializable {
         listaCombo.add("México");
         cbPais.setItems(listaCombo);
         
+        //LISTAR
+        compositores = FXCollections.observableArrayList();
+        
+        try {
+            compositores = FXCollections.observableArrayList(gestor.listarCompositores());
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
+        nombreCL.setCellValueFactory(new PropertyValueFactory<Compositor, String>("nombre"));
+        apellidoCL.setCellValueFactory(new PropertyValueFactory<Compositor, String>("apellido"));
+        paisCL.setCellValueFactory(new PropertyValueFactory<Compositor, String>("paisNacimiento"));
+        edadCL.setCellValueFactory(new PropertyValueFactory<Compositor, String>("edad"));
+        
+        tablaCompositores.setItems(compositores);
     }
     
     @FXML

@@ -8,6 +8,7 @@ package com.proyecto.tl.Generos;
 import com.proyecto.bl.Factory.DaoFactory;
 import com.proyecto.bl.Generos.Genero;
 import com.proyecto.bl.Generos.IGeneroDao;
+import java.util.ArrayList;
 
 
 public class GeneroController {
@@ -31,10 +32,17 @@ public class GeneroController {
             
         } catch (Exception e) {
             
-            e.printStackTrace();
-            
-        }
+            e.printStackTrace();    
+        }  
+    }
+    
+    public ArrayList<Genero> listarGeneros()throws Exception{
+        
+        
+        return generoDao.listarGenero();
         
     }
+    
+    
     
 }

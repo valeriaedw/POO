@@ -9,6 +9,7 @@ import com.proyecto.bl.Compositores.Compositor;
 import com.proyecto.bl.Compositores.ICompositorDao;
 import com.proyecto.bl.Factory.DaoFactory;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 
 public class CompositorController {
@@ -34,6 +35,12 @@ public class CompositorController {
         }
         
         
+    }
+    
+    public ArrayList <Compositor> listarCompositores()throws Exception{
+        
+        return compositorDao.listarCompositor();
+ 
     }
     
     
