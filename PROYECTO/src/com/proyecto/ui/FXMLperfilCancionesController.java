@@ -21,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -68,6 +69,13 @@ public class FXMLperfilCancionesController implements Initializable {
     private TableColumn <Cancion,String> calificacionCL;
     @FXML
     private TableColumn <Cancion,String> reproducirCL;
+    @FXML
+    private ComboBox cbGenero;
+    @FXML
+    private ComboBox cbCompositor;
+    
+    ObservableList<String> listaGenero = FXCollections.observableArrayList();
+    ObservableList<String> listaCompositor = FXCollections.observableArrayList();
 
     ObservableList<Cancion> canciones;
 
@@ -77,7 +85,18 @@ public class FXMLperfilCancionesController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        try {
+            //Llenar Generos
+            listaGenero = FXCollections.observableArrayList(gestor.llenarGeneros());
+            cbGenero.setItems(listaGenero);
+            //Llenar Compositores
+            listaCompositor = FXCollections.observableArrayList(gestor.llenarCompositores());
+            cbCompositor.setItems(listaCompositor);
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLperfilCancionesController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         //Tipos de archivo de foto que va a recibir
         files = new ArrayList<>();
         files.add("*.mp3");
@@ -131,8 +150,7 @@ public class FXMLperfilCancionesController implements Initializable {
 
             lblCancion.setText(f.getAbsolutePath());
         }
-        
- 
+
     }
 
     @FXML
@@ -141,5 +159,5 @@ public class FXMLperfilCancionesController implements Initializable {
         gestor.registroCancion(lblCancion.getText(), txtNombre.getText(), "genero", "artista", "compo", dpLanzamiento.getValue(), "", "estado", Double.parseDouble(txtPrecio.getText()), Integer.parseInt(txtCalificacion.getText()));
 
     }
-
+    
 }

@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 public interface ICancionDao {
     
+    public ArrayList <String> llenarGenero () throws Exception;
+    public ArrayList <String> llenarCompositor () throws Exception;
     public void insertarCancion (Cancion cancion) throws Exception;
     public ArrayList <Cancion> listarCancion () throws Exception;
     public void modificarCancion (Cancion cancion) throws Exception;

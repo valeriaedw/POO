@@ -11,6 +11,7 @@ import com.proyecto.bl.Compositores.Compositor;
 import com.proyecto.bl.Generos.Genero;
 import java.io.InputStream;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Cancion {
     
@@ -18,7 +19,7 @@ public class Cancion {
     
     private String cancion;
     private String nombre;
-    private String generoCancion; //Cambiar a tipo genero
+    private String genero; //Cambiar a tipo genero
     private String artista; // Cambiar a tipo Artista
     private String compositor; //Cambiar a tipo Compositor
     private LocalDate fechaLanzamiento;
@@ -34,12 +35,11 @@ public class Cancion {
     public Cancion (){
         
     }
-   
 
-    public Cancion(String cancion, String nombre, String generoCancion, String artista, String compositor, LocalDate fechaLanzamiento, String albumCancion, String estado, double precio, int calificacion) {
+    public Cancion(String cancion, String nombre, String genero, String artista, String compositor, LocalDate fechaLanzamiento, String albumCancion, String estado, double precio, int calificacion) {
         this.cancion = cancion;
         this.nombre = nombre;
-        this.generoCancion = generoCancion;
+        this.genero = genero;
         this.artista = artista;
         this.compositor = compositor;
         this.fechaLanzamiento = fechaLanzamiento;
@@ -48,11 +48,14 @@ public class Cancion {
         this.precio = precio;
         this.calificacion = calificacion;
     }
+   
+
+  
     
-    public Cancion(String cancion, String nombre, String generoCancion, String artista, String compositor, LocalDate fechaLanzamiento, String albumCancion,double precio, int calificacion) {
+    public Cancion(String cancion, String nombre,  String genero, String artista, String compositor, LocalDate fechaLanzamiento, String albumCancion,double precio, int calificacion) {
         this.cancion = cancion;
         this.nombre = nombre;
-        this.generoCancion = generoCancion;
+        this.genero = genero;
         this.artista = artista;
         this.compositor = compositor;
         this.fechaLanzamiento = fechaLanzamiento;
@@ -80,12 +83,12 @@ public class Cancion {
         this.nombre = nombre;
     }
 
-    public String getGeneroCancion() {
-        return generoCancion;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setGeneroCancion(String generoCancion) {
-        this.generoCancion = generoCancion;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public String getArtista() {
@@ -147,7 +150,7 @@ public class Cancion {
     //toString
     @Override
     public String toString() {
-        return "Cancion{" + "nombre=" + nombre + ", generoCancion=" + generoCancion + ", artista=" + artista + ", compositor=" + compositor + ", fechaLanzamiento=" + fechaLanzamiento + ", albumCancion=" + albumCancion + ", calificacion=" + calificacion + '}';
+        return "Cancion{" + "nombre=" + nombre + ", generoCancion=" + genero + ", artista=" + artista + ", compositor=" + compositor + ", fechaLanzamiento=" + fechaLanzamiento + ", albumCancion=" + albumCancion + ", calificacion=" + calificacion + '}';
     }
     
     

@@ -5,14 +5,9 @@
  */
 package com.proyecto.tl.Canciones;
 
-import com.proyecto.bl.Albumes.Album;
-import com.proyecto.bl.Artistas.Artista;
 import com.proyecto.bl.Canciones.Cancion;
 import com.proyecto.bl.Canciones.ICancionDao;
-import com.proyecto.bl.Compositores.Compositor;
 import com.proyecto.bl.Factory.DaoFactory;
-import com.proyecto.bl.Generos.Genero;
-import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -26,6 +21,18 @@ public class CancionController {
         factory = DaoFactory.getDaoFactory(1);
         cancionDao = factory.getCancionDao();
 
+    }
+    
+    public ArrayList<String> llenarGeneros () throws Exception{
+        
+        return cancionDao.llenarGenero();
+        
+    }
+    
+    public ArrayList<String> llenarCompositores () throws Exception{
+        
+        return cancionDao.llenarCompositor();
+        
     }
 
     public void registroCancion(String cancion, String nombre, String generoCancion, String artista, String compositor, LocalDate fechaLanzamiento, String albumCancion,String estado, double precio, int calificacion) throws Exception {

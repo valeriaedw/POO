@@ -27,6 +27,8 @@ public class FXMLLoginController implements Initializable {
     private TextField txtUsuario;
     @FXML
     private PasswordField pwdContrasenia;
+    
+    static String nombreUsuario;
     //Controller
     PersonaController gestor = new PersonaController();
 
@@ -35,7 +37,7 @@ public class FXMLLoginController implements Initializable {
         // TODO
     }
 
-    public void login(ActionEvent event) {
+    public void login(ActionEvent event) throws IOException {
         String name = txtUsuario.getText();
         String contrasenia = pwdContrasenia.getText();
         boolean usuarioExistente = gestor.loginUsuario(name, contrasenia);
@@ -59,9 +61,12 @@ public class FXMLLoginController implements Initializable {
 
         } else {
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Ya inició sesión");
-            alert.showAndWait();
+            Parent blah = FXMLLoader.load(getClass().getResource("FXMLperfil.fxml"));
+            Scene scene = new Scene(blah);
+            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+           
 
         }
     }
@@ -75,5 +80,16 @@ public class FXMLLoginController implements Initializable {
         appStage.show();
 
     }
-
+    
+    
+    public void guardarUsuario(String nombreLogueado){
+        
+        nombreUsuario = nombreLogueado;
+        //ControllerMenu controllerMenu = loader.getController();
+        //controllerMenu.guardarUsuario(txtNombreUsuario.getText());
+        
+        
+    }
 }
+
+

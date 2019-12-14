@@ -19,7 +19,7 @@ public class ProyectoPOO1 extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLperfilCompositores.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLperfilArtistas.fxml"));
         
         Scene scene = new Scene(root);
         stage.setScene(scene);

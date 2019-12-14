@@ -5,6 +5,7 @@
  */
 package com.proyecto.bl.Factory;
 
+import com.proyecto.bl.Artistas.IArtistaDao;
 import com.proyecto.bl.Canciones.ICancionDao;
 import com.proyecto.bl.Compositores.ICompositorDao;
 import com.proyecto.bl.Generos.IGeneroDao;
@@ -31,6 +32,7 @@ public abstract class DaoFactory {
     public abstract ICancionDao getCancionDao();
     public abstract IGeneroDao getGeneroDao();
     public abstract ICompositorDao getCompositorDao();
+    public abstract IArtistaDao getArtistaDao();
     
     
 }

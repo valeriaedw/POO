@@ -5,6 +5,8 @@
  */
 package com.proyecto.bl.Factory;
 
+import com.proyecto.bl.Artistas.IArtistaDao;
+import com.proyecto.bl.Artistas.SqlArtistaDao;
 import com.proyecto.bl.Canciones.ICancionDao;
 import com.proyecto.bl.Canciones.SqlCancionDao;
 import com.proyecto.bl.Compositores.ICompositorDao;
@@ -35,6 +37,13 @@ public class SqlDaoFactory extends DaoFactory{
     @Override
     public ICompositorDao getCompositorDao() {
        return new SqlCompositorDao();
+    }
+
+    @Override
+    public IArtistaDao getArtistaDao() {
+        
+        return new SqlArtistaDao();
+        
     }
     
 }
