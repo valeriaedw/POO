@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="456.0" prefWidth="666.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.tupuntodeventa.ui.FXMLlistarPuestosController">
+   <children>
+      <TableView fx:id="tablaPuestos" layoutX="89.0" layoutY="250.0" prefHeight="330.0" prefWidth="489.0">
+        <columns>
+          <TableColumn fx:id="nombreCL" prefWidth="87.0" text="Nombre" />
+            <TableColumn fx:id="baseCL" prefWidth="97.0" text="Salario Base" />
+          <TableColumn fx:id="netoCL" prefWidth="89.0" text="Salario Neto" />
+            <TableColumn fx:id="bonoCL" prefWidth="77.0" text="Bono" />
+            <TableColumn fx:id="fechaCL" prefWidth="138.0" text="Fecha Contratación" />
+        </columns>
+      </TableView>
+      <Label layoutX="282.0" layoutY="127.0" text="PUESTOS">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

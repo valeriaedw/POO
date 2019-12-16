@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="456.0" prefWidth="666.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.tupuntodeventa.ui.FXMLregistrarPuestoController">
+   <children>
+      <TextField fx:id="txtNombre" layoutX="229.0" layoutY="123.0" prefHeight="28.0" prefWidth="210.0" promptText="Nombre" />
+      <TextField fx:id="txtSalarioBase" layoutX="229.0" layoutY="168.0" prefHeight="28.0" prefWidth="210.0" promptText="Salario Base" />
+      <TextField fx:id="txtSalarioneto" layoutX="229.0" layoutY="218.0" prefHeight="28.0" prefWidth="210.0" promptText="Salario Neto" />
+      <TextField fx:id="txtBono" layoutX="229.0" layoutY="261.0" prefHeight="28.0" prefWidth="210.0" promptText="Bono" />
+      <DatePicker fx:id="dpContrato" layoutX="226.0" layoutY="305.0" prefHeight="28.0" prefWidth="216.0" promptText="Fecha Contratacion" />
+      <Label layoutX="254.0" layoutY="49.0" text="REGISTRAR PUESTO">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="291.0" layoutY="373.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="86.0" text="Registrar" />
+   </children>
+</AnchorPane>
